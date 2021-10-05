@@ -3,8 +3,11 @@ import './App.css';
 import { useState, useEffect } from 'react';
 
 import Header from './Header';
+import Search from './Search';
+
 import NewBookForm from './NewBookForm';
 import NewAuthorForm from './NewAuthorForm';
+
 import BookList from './BookList';
 import AuthorList from './AuthorList';
 
@@ -60,6 +63,7 @@ function App() {
     <div className="App">
 
       <Header />
+      {/* <Search /> */}
 
       <NewBookForm newBookInput={newBookInput}
                    setNewBook={setNewBook}
