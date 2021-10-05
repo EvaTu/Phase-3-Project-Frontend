@@ -1,6 +1,6 @@
 //imports
 
-function NewAuthorForm({ newAuthorInput, setNewAuthor}) {
+function NewAuthorForm({ newAuthorInput, setNewAuthor, handleSubmit }) {
 
     const {name, image, desc} = newAuthorInput;
 
@@ -9,7 +9,7 @@ function NewAuthorForm({ newAuthorInput, setNewAuthor}) {
 
             <h2>Additional Authors</h2>
 
-            <form id='newAuthorForm' onSubmit={e => console.log(e)}>
+            <form id='newAuthorForm' onSubmit={e => handleSubmit(e)}>
 
                 <input type='text'
                        className='formText'

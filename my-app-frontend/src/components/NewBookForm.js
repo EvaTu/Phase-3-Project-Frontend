@@ -1,6 +1,6 @@
 // import React from './react';
 
-function NewBookForm({ newBookInput, setNewBook }) {
+function NewBookForm({ newBookInput, setNewBook, handleSubmit }) {
 
     const {title, image, isbn, desc, publisher, author} = newBookInput
 
@@ -9,7 +9,7 @@ function NewBookForm({ newBookInput, setNewBook }) {
 
             <h2>Add A New Book!</h2>
 
-            <form id='newBookForm' onSubmit={e => console.log(e)}>
+            <form id='newBookForm' onSubmit={e => handleSubmit(e)}>
 
                 <input type='text'
                        className='formText'

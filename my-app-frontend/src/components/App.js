@@ -23,6 +23,13 @@ function App() {
     .then(books => console.log(books))
   },[]);
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    if(e.target.id === 'newBookForm') 
+    {console.log('new book added')}
+    else 
+    {console.log('new author added')}
+  }
 
   return (
     <div className="App">
@@ -30,10 +37,12 @@ function App() {
       <Header />
 
       <NewBookForm newBookInput={newBookInput}
-                   setNewBook={setNewBook} />
+                   setNewBook={setNewBook}
+                   handleSubmit={handleSubmit} />
 
       <NewAuthorForm newAuthorInput={newAuthorInput}
-                     setNewAuthor={setNewAuthor} />
+                     setNewAuthor={setNewAuthor}
+                     handleSubmit={handleSubmit} />
 
       <BookList />
       
