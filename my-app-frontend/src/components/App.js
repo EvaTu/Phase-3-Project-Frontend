@@ -1,4 +1,4 @@
-import '../App.css';
+import './App.css';
 
 import { useState, useEffect } from 'react';
 
@@ -15,12 +15,14 @@ function App() {
 
   const [newAuthorInput, setNewAuthor] = useState(
     {name: '', image: '', desc: ''}
-  );
+    );
+
+  const [booksList, setBooksList] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:9292/books`)
     .then(resp => resp.json())
-    .then(books => console.log(books))
+    .then(books => setBooksList(books))
   },[]);
 
   function handleSubmit(e) {
@@ -58,7 +60,7 @@ function App() {
                      setNewAuthor={setNewAuthor}
                      handleSubmit={handleSubmit} />
 
-      <BookList />
+      <BookList booksList={booksList} />
       
     </div>
   );
