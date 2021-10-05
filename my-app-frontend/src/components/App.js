@@ -6,6 +6,7 @@ import Header from './Header';
 import NewBookForm from './NewBookForm';
 import NewAuthorForm from './NewAuthorForm';
 import BookList from './BookList';
+import AuthorList from './AuthorList';
 
 
 function App() {
@@ -18,6 +19,14 @@ function App() {
     );
 
   const [booksList, setBooksList] = useState([]);
+
+  const [getAuthors, setGetAuthors] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:9292/authors")
+    .then(response => response.json())
+    .then(authorArr => setGetAuthors(authorArr))
+    }, [])
 
   useEffect(() => {
     fetch(`http://localhost:9292/books`)
@@ -61,6 +70,9 @@ function App() {
                      handleSubmit={handleSubmit} />
 
       <BookList booksList={booksList} />
+
+      <AuthorList getAuthors={getAuthors} 
+                  setGetAuthors={setGetAuthors}/>
       
     </div>
   );
