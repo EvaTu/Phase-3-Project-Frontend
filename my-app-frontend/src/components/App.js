@@ -1,18 +1,28 @@
 import '../App.css';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from './Header';
 import NewBookForm from './NewBookForm';
+import NewAuthorForm from './NewAuthorForm';
 import BookList from './BookList';
 
 
 function App() {
 
   const [newBookInput, setNewBook] = useState(
-    {title: '', image: '', isbn: '', desc: '', publisher: ''});
+    {title: '', image: '', isbn: '', desc: '', publisher: '', author: ''});
 
-    console.log(newBookInput)
+  const [newAuthorInput, setNewAuthor] = useState(
+    {name: '', image: '', desc: ''}
+  );
+
+  useEffect(() => {
+    fetch(`http://localhost:9292/books`)
+    .then(resp => resp.json())
+    .then(books => console.log(books))
+  },[]);
+
 
   return (
     <div className="App">
@@ -21,6 +31,9 @@ function App() {
 
       <NewBookForm newBookInput={newBookInput}
                    setNewBook={setNewBook} />
+
+      <NewAuthorForm newAuthorInput={newAuthorInput}
+                     setNewAuthor={setNewAuthor} />
 
       <BookList />
       

@@ -2,10 +2,10 @@
 
 function NewBookForm({ newBookInput, setNewBook }) {
 
-    const {title, image, isbn, desc, publisher} = newBookInput
+    const {title, image, isbn, desc, publisher, author} = newBookInput
 
     return (
-        <div className='newBookForm'>
+        <div className='form'>
 
             <h2>Add A New Book!</h2>
 
@@ -44,6 +44,13 @@ function NewBookForm({ newBookInput, setNewBook }) {
                        placeholder='Publisher'
                        name='publisher'
                        value={publisher}
+                       onChange={e => setNewBook({...newBookInput, [e.target.name]: e.target.value})} />
+
+              <input type='text'
+                       className='formText'
+                       placeholder='Author'
+                       name='author'
+                       value={author}
                        onChange={e => setNewBook({...newBookInput, [e.target.name]: e.target.value})} />
 
             </form>
