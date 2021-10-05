@@ -9,7 +9,7 @@ function NewBookForm({ newBookInput, setNewBook }) {
 
             <h2>Add A New Book!</h2>
 
-            <form id='newBookForm'>
+            <form id='newBookForm' onSubmit={e => console.log(e)}>
 
                 <input type='text'
                        className='formText'
@@ -52,6 +52,9 @@ function NewBookForm({ newBookInput, setNewBook }) {
                        name='author'
                        value={author}
                        onChange={e => setNewBook({...newBookInput, [e.target.name]: e.target.value})} />
+
+              <input type='submit'
+                     value='Submit' />
 
             </form>
 
