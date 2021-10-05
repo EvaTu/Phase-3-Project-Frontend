@@ -11,7 +11,7 @@ import BookList from './BookList';
 function App() {
 
   const [newBookInput, setNewBook] = useState(
-    {title: '', image: '', isbn: '', desc: '', publisher: '', author: ''});
+    {title: '', image: '', isbn: '', desc: '', publisher: ''});
 
   const [newAuthorInput, setNewAuthor] = useState(
     {name: '', image: '', desc: ''}
@@ -24,11 +24,25 @@ function App() {
   },[]);
 
   function handleSubmit(e) {
+
     e.preventDefault();
+
     if(e.target.id === 'newBookForm') 
-    {console.log('new book added')}
+    {fetch(`http://localhost:9292/books`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newBookInput)})
+      .then(resp => resp.json())
+      .then(data => console.log(data))
+    }
     else 
-    {console.log('new author added')}
+    {fetch(`http://localhost:9292/authors`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newAuthorInput)})
+      .then(resp => resp.json())
+      .then(data => console.log(data))
+    }
   }
 
   return (

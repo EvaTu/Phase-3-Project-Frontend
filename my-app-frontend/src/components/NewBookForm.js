@@ -2,7 +2,7 @@
 
 function NewBookForm({ newBookInput, setNewBook, handleSubmit }) {
 
-    const {title, image, isbn, desc, publisher, author} = newBookInput
+    const {title, image, isbn, desc, publisher} = newBookInput
 
     return (
         <div className='form'>
@@ -44,13 +44,6 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit }) {
                        placeholder='Publisher'
                        name='publisher'
                        value={publisher}
-                       onChange={e => setNewBook({...newBookInput, [e.target.name]: e.target.value})} />
-
-              <input type='text'
-                       className='formText'
-                       placeholder='Author'
-                       name='author'
-                       value={author}
                        onChange={e => setNewBook({...newBookInput, [e.target.name]: e.target.value})} />
 
               <input type='submit'
