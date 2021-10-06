@@ -11,12 +11,13 @@ import NewAuthorForm from './NewAuthorForm';
 
 import BookList from './BookList';
 import AuthorList from './AuthorList';
+import BookDetails from './BookDetails';
 
 
 function App() {
 
   const [newBookInput, setNewBook] = useState(
-    {title: '', image: '', isbn: '', desc: '', publisher: ''}
+    {title: '', image: '', isbn: '', desc: '', publisher: '', author: ''}
     );
 
   const [newAuthorInput, setNewAuthor] = useState(
@@ -25,7 +26,9 @@ function App() {
 
   const [booksList, setBooksList] = useState([]);
 
-  const [getAuthors, setGetAuthors] = useState([])
+  const [getAuthors, setGetAuthors] = useState([]);
+
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:9292/authors")
@@ -61,19 +64,25 @@ function App() {
     }
   }
 
+  const filteredBooks =  booksList.filter(book => book.title.toLowerCase().includes(search.toLowerCase()))
+  const filteredAuthors =  getAuthors.filter(author => author.name.toLowerCase().includes(search.toLowerCase()))
+
   return (
     <div className="App">
 
       <Header />
-      <Search />
+      <Search search={search} setSearch={setSearch}/>
 
       <Switch>
 
         <Route path='/books/new'>
           <NewBookForm newBookInput={newBookInput}
                       setNewBook={setNewBook}
-                      handleSubmit={handleSubmit} />
+                      handleSubmit={handleSubmit}
+                      getAuthors={getAuthors} />
         </Route>
+
+        <Route path='/books/:id' component={BookDetails} />
 
         <Route path='/authors/new'>
           <NewAuthorForm newAuthorInput={newAuthorInput}
@@ -81,17 +90,12 @@ function App() {
                       handleSubmit={handleSubmit} />
         </Route>
 
-        <Route path='/books'>
-          <BookList booksList={booksList} />
-        </Route>
-
         <Route path='/authors'>
-          <AuthorList getAuthors={getAuthors} 
-                    setGetAuthors={setGetAuthors}/>
+          <AuthorList filteredAuthors={filteredAuthors}/>
         </Route>
 
         <Route path='/'>
-          <BookList booksList={booksList} />
+          <BookList filteredBooks={filteredBooks}/>
         </Route>
 
       </Switch>

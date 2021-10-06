@@ -1,20 +1,19 @@
-import React, {useState} from "react"
-import BookList from "./BookList"
+import React from "react"
 
 
-function Search({booksList}) {
 
-    const [searchBooks, setSearchBooks] = useState("")
+function Search({search, setSearch}) {
 
     
 
     return(
-        <div className="SearchBar">
+        <div className="search_bar">
             <input
                 type="text"
-                placeHolder="Search by book title"
-                value={null}
-                onChange={(e)=> console.log(e.target.value)}
+                placeholder="Search by book title or author name"
+                value={search}
+                onChange={(e)=> setSearch(e.target.value)}
+                className="search_input"
                 />
         </div>
     )

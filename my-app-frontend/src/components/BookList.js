@@ -1,13 +1,16 @@
 // import React from './react';
 import BookCard from "./BookCard";
 
-function BookList({ booksList }) {
+function BookList({ filteredBooks }) {
  
-    const books = booksList.map(book => <BookCard book={book} key={book.id} />);
+    const books = filteredBooks.map(book => 
+        <BookCard book={book} key={book.id} />);
 
     return (
-        <div>
+        <div className="books-container">
+            <ul className="book-cards">
             {books}
+            </ul>
         </div>
     );
 

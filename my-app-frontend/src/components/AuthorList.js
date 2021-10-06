@@ -1,16 +1,16 @@
 import React from "react";
 import AuthorCard from "./AuthorCard"
 
-function AuthorList({getAuthors, setGetAuthors}){
+function AuthorList({filteredAuthors}){
 
-    const authorsComponent = getAuthors.map(author =>
+    const authors = filteredAuthors.map(author =>
         <AuthorCard authorObj={author} key={author.id} />)
 
 
     return(
         <div>
             <ul className="author-cards">
-                {authorsComponent}
+                {authors}
             </ul>
         </div>
     )

@@ -1,4 +1,4 @@
-// import React from './react';
+import { Link } from 'react-router-dom';
 
 function BookCard({ book }) {
 
@@ -8,12 +8,14 @@ function BookCard({ book }) {
 
 
     return (
-        <div className='bookCard' onClick={e => console.log(e.target.className)} id={id}>
-            <h2>{title}</h2>
-            <img src={image === '' ? placeHolder : image} alt={title} />
-            <h3>Author(s):</h3>
-            {authorNames}
-        </div>
+        <Link to={`/books/${id}`}>
+            <div className='bookCard' onClick={e => console.log(e.target.className)} id={id}>
+                <h2>{title}</h2>
+                <img src={image === '' ? placeHolder : image} alt={title} />
+                <h3>Author(s):</h3>
+                {authorNames}
+            </div>
+        </Link>
     );
 
 }

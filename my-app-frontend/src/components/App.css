@@ -13,18 +13,80 @@
   color: white;
 }
 
-.bookCard,
-.author-card {
+.bookCard {
   background: rgb(222, 222, 222);
   width: 240px;
   padding: 20px;
   margin: 10px;
   float: left;
+  
 }
 
-.bookCard img,
-.author-card img {
+.author-card {
+  background: rgb(222, 222, 222);
+  width: 240px;
+  height: 350px;
+  padding: 20px;
+  margin: 10px;
+  float: left;
+}
+
+
+.bookCard img {
   width: 100%;
   height: auto;
   object-fit: contain;
+}
+
+.author-card img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
+
+.header {
+  background-color:rgb(128,128,128);
+  font-family: sans-serif;
+}
+
+#navigation {
+  display: flex;
+  justify-content: center;
+}
+
+#navigation h2 {
+  margin-left: 50px;
+  width: auto;
+  background-color: rgb(197, 196, 196);
+  padding:10px;
+  border-radius: 20px;
+}
+
+#navigation h2 a {
+  text-decoration: none;
+  color: black
+}
+
+.search_bar {
+  margin-bottom: 30px;
+  background-color:rgb(70,130,180);
+  padding:20px;
+  
+}
+
+.search_input {
+  padding:10px 100px 10px 100px;
+  border-radius: 20px;
+  border:0px;
+}
+
+#authors-container {
+  justify-content: center;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  
 }
