@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 function AuthorCard({authorObj}) {
-    const {image, name, desc} = authorObj
+    const {image, name, desc, books} = authorObj
     const [isClicked, setIsClicked] = useState(true)
 
     function handleToggleClick(){
@@ -18,8 +18,11 @@ function AuthorCard({authorObj}) {
                 <h3>Author Name: {name}</h3>
             </div>
             ):(
-            <div className="author-card">
+                <div className="author-card">
                 <h4>Author Bio: {desc}</h4>
+                <p>Author Books: </p>
+                {books.map(book => 
+                    <p>{book.title}</p>)}
             </div>
             )
             }

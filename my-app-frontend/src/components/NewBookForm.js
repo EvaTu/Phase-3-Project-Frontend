@@ -70,6 +70,25 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
                      value='Submit' />
 
             </form>
+
+            <div className="added-book-info">
+                <h4>New Book Title:</h4>
+                <p>{title}</p>
+                <br />
+                <h4>New Book Image:</h4>
+                <img src={image} alt={title}/>
+                <h4>ISBN: </h4>
+                <p>{isbn}</p>
+                <br />
+                <h4>New Book Description:</h4>
+                <p>{desc}</p>
+                <br />
+                <h4>New Book Publisher:</h4>
+                <p>{publisher}</p>
+                <br />
+                <h4>New Book Author:</h4>
+                {author.map(els => <p key={els.id}>{els.value}</p>)}
+            </div>
  
         </div>
     );

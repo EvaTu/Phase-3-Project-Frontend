@@ -17,7 +17,7 @@ import BookDetails from './BookDetails';
 function App() {
 
   const [newBookInput, setNewBook] = useState(
-    {title: '', image: '', isbn: '', desc: '', publisher: '', author: ''}
+    {title: '', image: '', isbn: '', desc: '', publisher: '', author: []}
     );
 
   const [newAuthorInput, setNewAuthor] = useState(
@@ -34,13 +34,13 @@ function App() {
     fetch("http://localhost:9292/authors")
     .then(response => response.json())
     .then(authorArr => setGetAuthors(authorArr))
-    }, [])
+    }, [setNewAuthor, newAuthorInput])
 
   useEffect(() => {
     fetch(`http://localhost:9292/books`)
     .then(resp => resp.json())
     .then(books => setBooksList(books))
-  },[]);
+  },[setNewBook, newBookInput]);
 
   function handleSubmit(e) {
 
@@ -52,7 +52,7 @@ function App() {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newBookInput)})
       .then(resp => resp.json())
-      .then(data => console.log(data))
+      .then(() => setNewBook({title: '', image: '', isbn: '', desc: '', publisher: '', author: ''}))
     }
     else 
     {fetch(`http://localhost:9292/authors`, {
@@ -60,7 +60,7 @@ function App() {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newAuthorInput)})
       .then(resp => resp.json())
-      .then(data => console.log(data))
+      .then(() => setNewAuthor({name: '', image: '', desc: ''}))
     }
   }
 

@@ -2,28 +2,55 @@
   text-align: center;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Beastly&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #58c45b;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1vmin);
   color: white;
+  background-image: url(https://images.squarespace-cdn.com/content/v1/571a52302b8ddeff9736e96c/1545239534206-Z3343JP9PKH92B9QDY3U/green-treeline-1.jpg);
 }
 
+.App-header h1 {
+  font-size: 150px;
+  font-family: 'Rubik Beastly', cursive;
+  font-weight: 1;
+  text-shadow:5px 5px 8px #100c01;
+}
+
+.App-header h3 {
+  font-style: italic;
+  font-family: 'Roboto',sans-serif;
+  font-size: 35px;
+}
+
+/* body {
+  background: lightgray;
+} */
+
 .bookCard {
-  background: rgb(222, 222, 222);
+  /* background: rgba(211, 211, 211, 0.599); */
   width: 240px;
   padding: 20px;
   margin: 10px;
   float: left;
-  
+  height: 500px;
+  overflow-y: auto;
+  font-family: 'Roboto',sans-serif;
+}
+
+.bookCard:hover {
+  background-color: rgba(201, 201, 201, 0);
 }
 
 .author-card {
-  background: rgb(222, 222, 222);
+  background: rgba(222, 222, 222, 0.606);
   width: 240px;
   height: 350px;
   padding: 20px;
@@ -58,21 +85,31 @@
 #navigation h2 {
   margin-left: 50px;
   width: auto;
-  background-color: rgb(197, 196, 196);
-  padding:10px;
-  border-radius: 20px;
+  background-color: #6eda71cf;
+  padding:20px;
+  border-radius: 37px;
+}
+
+#navigation h2:hover {
+  background-image: url(https://img1.picmix.com/output/stamp/normal/2/5/3/0/1530352_a73bc.gif);
+  font-weight: bolder;
 }
 
 #navigation h2 a {
   text-decoration: none;
-  color: black
+  font-family: 'Roboto', sans-serif;
+  color: rgb(62, 62, 62)
+}
+
+#navigation h2 a:hover {
+  color: white;
+  text-shadow:2px 2px 8px #100c01;
 }
 
 .search_bar {
   margin-bottom: 30px;
-  background-color:rgb(70,130,180);
+  background-color:rgb(106, 162, 208);
   padding:20px;
-  
 }
 
 .search_input {

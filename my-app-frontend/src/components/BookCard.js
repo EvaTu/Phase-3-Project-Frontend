@@ -10,10 +10,10 @@ function BookCard({ book }) {
     return (
         <Link to={`/books/${id}`}>
             <div className='bookCard' onClick={e => console.log(e.target.className)} id={id}>
-                <h2>{title}</h2>
+                {/* <h2>{title}</h2> */}
                 <img src={image === '' ? placeHolder : image} alt={title} />
-                <h3>Author(s):</h3>
-                {authorNames}
+                {/* <h3>Author(s):</h3> */}
+                {/* {authorNames} */}
             </div>
         </Link>
     );
