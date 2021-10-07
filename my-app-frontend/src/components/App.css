@@ -30,23 +30,20 @@
   font-size: 35px;
 }
 
-/* body {
-  background: lightgray;
-} */
-
 .bookCard {
   /* background: rgba(211, 211, 211, 0.599); */
   width: 240px;
   padding: 20px;
   margin: 10px;
   float: left;
-  height: 500px;
+  height: 400px;
   overflow-y: auto;
   font-family: 'Roboto',sans-serif;
+
 }
 
 .bookCard:hover {
-  background-color: rgba(201, 201, 201, 0);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
 .author-card {

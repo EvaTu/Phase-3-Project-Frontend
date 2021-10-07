@@ -4,6 +4,7 @@ import { useHistory, useParams, Link } from 'react-router-dom';
 function BookDetails() {
 
     const [singleBook, setSingleBook] = useState({});
+    const [authors, setAuthors] = useState([]);
 
     const id = useParams().id;
     let history = useHistory();
@@ -11,22 +12,24 @@ function BookDetails() {
     useEffect(() => {
         fetch(`http://localhost:9292/books/${id}`)
         .then(resp => resp.json())
-        .then(book => setSingleBook(book))
+        .then(book => {setSingleBook(book);
+                       setAuthors(book.authors)})
     }, [id])
 
-    const {title, image, isbn, desc, publisher, authors} = singleBook
-    // const authorNames = [];
-
-    // if(authors.length > 0){authorNames};
-    // console.log(authors)
+    const {title, image, isbn, desc, publisher} = singleBook
+    console.log(authors)
     
-    // const authorNames = authors.map(author => <p key={author.name}>{author.name}</p>);
+    const authorNames = authors.map(el => {
+        return (<Link to={`/authors`} key={el.name}>
+                    <h2 key={el.name}>{el.name}</h2>
+                </Link> )}
+    );
 
     return (
         <div className='bookDetails'>
             <img src={image} alt={title}/>
             <h1>{title}</h1>
-            {/* {authorNames} */}
+            {authorNames}
             <h3>{publisher} Publishing House</h3>
             <p>ISBN-10: {isbn}</p>
             <p>{desc}</p>
