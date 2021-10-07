@@ -28,8 +28,10 @@ function BookDetails() {
     return (
         <div className='bookDetails'>
             <img src={image} alt={title}/>
-            <h1>{title}</h1>
-            {authorNames}
+
+            <h1>{title}</h1><br />
+            <h2>Authored By:</h2>
+            {authorNames}<br />
             <h3>{publisher} Publishing House</h3>
             <p>ISBN-10: {isbn}</p>
             <p>{desc}</p>
