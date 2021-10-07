@@ -8,7 +8,7 @@ function AuthorList({filteredAuthors}){
 
 
     return(
-        <div>
+        <div className='authors-container'>
             <ul className="author-cards">
                 {authors}
             </ul>
