@@ -6,6 +6,8 @@ function BookDetails() {
     const [singleBook, setSingleBook] = useState({});
     const [authors, setAuthors] = useState([]);
 
+    const placeHolder = 'https://cdn.pixabay.com/photo/2018/01/17/18/43/book-3088777_640.png'
+
     const id = useParams().id;
     let history = useHistory();
 
@@ -17,7 +19,6 @@ function BookDetails() {
     }, [id])
 
     const {title, image, isbn, desc, publisher} = singleBook
-    console.log(authors)
     
     const authorNames = authors.map(el => {
         return (<Link to={`/authors`} key={el.name}>
@@ -27,7 +28,7 @@ function BookDetails() {
 
     return (
         <div className='bookDetails'>
-            <img src={image} alt={title}/>
+            <img src={image !== ''? image : placeHolder} alt={title}/>
 
             <h1>{title}</h1><br />
             <h2>Authored By:</h2>

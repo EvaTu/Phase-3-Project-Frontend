@@ -52,8 +52,10 @@
   padding: 20px;
   margin: 10px;
   float: left;
-  height: 400px;
+  height: 500px;
   font-family: 'Roboto',sans-serif;
+  overflow-y: auto;
+  color: #000000;
 }
 
 .bookCard:hover {
@@ -114,7 +116,6 @@
 
 }
 
-
 .header {
   background-color:rgb(128,128,128);
   font-family: sans-serif;
@@ -130,7 +131,7 @@
   width: auto;
   background-color: #d8e8d8d2;
   padding:20px;
-  border-radius: 37px;
+  border-radius: 50px;
 }
 
 #navigation h2:hover {
@@ -200,4 +201,88 @@
   float: left;
   padding-right: 15px;
   width: 315px;
+  height: 500px;
+  object-fit: fill;
+}
+
+.bookDetails button {
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#070707;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+.bookDetails button:hover {
+  color:#000000;
+  background-color:rgb(106, 162, 208);
+}
+
+.author-form,
+.book-form {
+  width: 800px;
+  text-align: center;
+  display: inline-grid;
+  font-family:'Roboto',sans-serif;
+
+}
+
+#newAuthorForm, 
+#newBookForm {
+  margin-top: 10px;
+  margin-left:230px;
+  width: 350px;
+  display: block;
+  font-family:'Roboto',sans-serif;
+
+}
+
+input[type="submit"] {
+  margin: 15px;
+  border-radius: 15px;
+  border-width: 0;
+  width:100px;
+  height:40px;
+  font-family:'Roboto',sans-serif;
+
+}
+
+input.formText {
+  margin-bottom: 20px;
+  height:30px;
+  width: 350px;
+  border-radius: 5px;
+  border-width: 0.5px;
+  border-color: lightgray;
+  font-family:'Roboto',sans-serif;
+
+}
+
+.added-author-info,
+.added-book-info
+ {
+  
+  background-color:rgba(190, 187, 187, 0.658);
+  margin-top: 70px;
+  width: 800px;
+  height: auto;
+  display: inline-table;
+  margin-bottom: 150px;
+  font-family:'Roboto',sans-serif;
+
+}
+
+.notDisplayed {
+  display: none;
+}
+
+.displayed {
+  font-family:'Roboto',sans-serif;
 }

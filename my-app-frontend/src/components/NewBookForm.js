@@ -1,21 +1,21 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
 
 function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
 
+    const [selectedAuthors, SetSelectedAuthors] = useState([]);
+
     const animatedComponents = makeAnimated();
     const authorNames = [];
 
     getAuthors.map(author => authorNames.push({value: author.name, label: author.name, id: author.id}))
-//     console.log(getAuthors)
 
     const {title, image, isbn, desc, publisher, author} = newBookInput
-//     const [selectedTwo, setSelectedTwo] = useState([])
 
     return (
-        <div className='form'>
+        <div className='book-form'>
 
             <h2>Add A New Book!</h2>
             <p>PLEASE NOTE: If you can't find your author, please create them first!</p>
@@ -61,7 +61,9 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
                     closeMenuOnSelect={false}
                     components={animatedComponents}
                      value={author}
-                    onChange={e => setNewBook(formerBook => ({...formerBook, author: e}))}
+                    onChange={e => {
+                        setNewBook(formerBook => ({...formerBook, author: e}));
+                        SetSelectedAuthors(e)}}
                     defaultValue={[authorNames[4]]}
                     isMulti
                     options={authorNames} />
@@ -87,7 +89,7 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
                 <p>{publisher}</p>
                 <br />
                 <h4>New Book Author:</h4>
-                {author.map(els => <p key={els.id}>{els.value}</p>)}
+                {selectedAuthors.map(authorName => <p key={authorName.value}>{authorName.value}</p>)}
             </div>
  
         </div>

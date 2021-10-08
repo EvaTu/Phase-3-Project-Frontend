@@ -14,7 +14,7 @@ function Header() {
                     <Link to='/books' onClick={() => history.push('/books')}>Books</Link>
                 </h2>
                 <h2>
-                    <Link to='/books/new' onClick={() => history.push('/books/new')}>Add A Book</Link>
+                    <Link to='/books/new' onClick={() => history.push('/books/new')}>Sell A Book</Link>
                 </h2>
                 <h2>
                     <Link to='/authors/new' onClick={() => history.push('/authors/new')}>Add An Author</Link>

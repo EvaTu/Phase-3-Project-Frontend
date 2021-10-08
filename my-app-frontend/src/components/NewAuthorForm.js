@@ -6,7 +6,7 @@ function NewAuthorForm({ newAuthorInput, setNewAuthor, handleSubmit }) {
     console.log(newAuthorInput)
 
     return (
-        <div className='form'>
+        <div className='author-form'>
 
             <h2>Additional Authors</h2>
 
