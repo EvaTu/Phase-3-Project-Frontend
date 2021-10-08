@@ -18,7 +18,7 @@ function NewBookForm({ newBookInput, setNewBook, handleSubmit, getAuthors }) {
         <div className='book-form'>
 
             <h2>Add A New Book!</h2>
-            <p>PLEASE NOTE: If you can't find your author, please create them first!</p>
+            <p>NOTE: If you can't find a specific author, please create them first!</p>
 
             <form id='newBookForm' onSubmit={e => handleSubmit(e)}>
 

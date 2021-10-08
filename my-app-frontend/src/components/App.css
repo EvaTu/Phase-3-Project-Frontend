@@ -205,22 +205,8 @@
   object-fit: fill;
 }
 
-.bookDetails button {
-  display:inline-block;
-  padding:0.35em 1.2em;
-  border:0.1em solid #FFFFFF;
-  margin:0 0.3em 0.3em 0;
-  border-radius:0.12em;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-family:'Roboto',sans-serif;
-  font-weight:300;
-  color:#070707;
-  text-align:center;
-  transition: all 0.2s;
-}
-
-.bookDetails button:hover {
+.bookDetails button:hover,
+input[type="submit"]:hover {
   color:#000000;
   background-color:rgb(106, 162, 208);
 }
@@ -244,9 +230,10 @@
 
 }
 
-input[type="submit"] {
+input[type="submit"],
+.bookDetails button {
   margin: 15px;
-  border-radius: 15px;
+  border-radius: 25px;
   border-width: 0;
   width:100px;
   height:40px;
@@ -269,13 +256,17 @@ input.formText {
 .added-book-info
  {
   
-  background-color:rgba(190, 187, 187, 0.658);
+  background-color:rgba(203, 201, 201, 0.565);
   margin-top: 70px;
   width: 800px;
   height: auto;
   display: inline-table;
   margin-bottom: 150px;
   font-family:'Roboto',sans-serif;
+  padding: 15px;
+  text-align: left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+
 
 }
 

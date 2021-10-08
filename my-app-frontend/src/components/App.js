@@ -34,13 +34,13 @@ function App() {
     fetch("http://localhost:9292/authors")
     .then(response => response.json())
     .then(authorArr => setGetAuthors(authorArr))
-    }, [setNewAuthor, newAuthorInput])
+    }, [setNewAuthor, newAuthorInput, newBookInput])
 
   useEffect(() => {
     fetch(`http://localhost:9292/books`)
     .then(resp => resp.json())
     .then(books => setBooksList(books))
-  },[setNewBook, newBookInput]);
+  },[setNewBook, newBookInput, newAuthorInput]);
 
   function handleSubmit(e) {
 
@@ -71,7 +71,7 @@ function App() {
     <div className="App">
 
       <Header />
-      <Search search={search} setSearch={setSearch}/>
+      {/* <Search search={search} setSearch={setSearch}/> */}
 
       <Switch>
 
@@ -91,10 +91,12 @@ function App() {
         </Route>
 
         <Route path='/authors'>
+          <Search search={search} setSearch={setSearch}/>
           <AuthorList filteredAuthors={filteredAuthors}/>
         </Route>
 
         <Route path='/'>
+          <Search search={search} setSearch={setSearch}/>
           <BookList filteredBooks={filteredBooks}/>
         </Route>
 
